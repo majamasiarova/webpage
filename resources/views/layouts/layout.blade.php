@@ -13,18 +13,18 @@
     <div class="nav-wrapper">
         <div class="left-side">
             <div class="nav-link-wrapper">
-                <a href="{{route('page.index')}}/">Home</a>
+                <a href="{{route('page.index')}}/">Domov</a>
             </div>
 
             <div class="nav-link-wrapper">
-                <a href="{{route('page.about')}}">About</a>
+                <a href="{{route('page.about')}}">O stránke</a>
             </div>
             <div class="nav-link-wrapper">
-                <a href="{{route('page.contact')}}">Contact</a>
+                <a href="{{route('page.contact')}}">Kontakt</a>
             </div>
 
             <div class="nav-link-wrapper">
-                <a href="{{route('page.ads')}}">Inzeraty</a>
+                <a href="{{route('page.ads')}}">Inzeráty</a>
 
             </div>
 
@@ -33,7 +33,12 @@
 
         <div class="right-side">
             <div class="brand">
-                MÁRIA MÄSIAROVÁ
+                @auth
+                    <a href="{{route('user.logout')}}">ODHLÁSENIE</a>
+                @endauth
+                @guest
+                    <a href="{{route('user.login')}}">PRIHLÁSENIE</a>
+                @endauth
             </div>
         </div>
     </div>
