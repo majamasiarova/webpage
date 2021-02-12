@@ -30,8 +30,11 @@ Route::post('/vytvor-uzivatela', [UserController::class, 'create'])->name('user.
 Route::get('/prihlas', [UserController::class, 'login'])->name('user.login');
 Route::post('/skontroluj', [UserController::class, 'check'])->name('user.check');
 
-Route::get('/zobrazit', [AdController::class, 'view'])->name('ad.view');
+
+Route::get('/zobrazit/{kategoria}', [AdController::class, 'view'])->name('ad.view');
 Route::get('/odstranit', [AdController::class, 'delete'])->name('ad.delete');
+
+Route::post('/vytvor-inzerat', [AdController::class, 'create'])->name('ad.create');
 Route::get('/pridat', [AdController::class, 'add'])->name('ad.add');
 
 Route::get('/', [PageController::class, 'index'])->name('page.index');

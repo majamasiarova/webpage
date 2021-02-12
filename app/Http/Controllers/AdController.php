@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Ad;
+use Illuminate\Http\Request;
 
 class AdController extends Controller
 {
@@ -17,9 +18,28 @@ class AdController extends Controller
         return view('ad.delete');
     }
 
-    public function view()
+    public function view(string $kategoria)
     {
-        return view('ad.view');
+        $ads = Ad::where('category', $kategoria)
+            ->get();
+        return view('ad.view', ['ads' => $ads]);
+    }
+
+    public function create(Request $request)
+    {
+        $ad = new Ad();
+
+        $ad->description = $request->popis;
+
+        $ad->category = $request->kategoria;
+        $ad->price = $request->cena;
+        $ad->name = $request->nazov;
+        $ad->location = $request->lokalita;
+
+        $ad->save();
+
+
+        return redirect()->route('ad.view', ['kategoria', $ad->category]);
     }
 
 
