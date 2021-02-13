@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ad;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
 {
@@ -13,16 +14,16 @@ class AdController extends Controller
         return view('ad.add');
     }
 
-    public function delete()
+    public function delete(Ad $ad)
     {
-        return view('ad.delete');
+        $ad->delete();
     }
 
     public function view(string $kategoria)
     {
         $ads = Ad::where('category', $kategoria)
             ->get();
-        return view('ad.view', ['ads' => $ads]);
+        return view('ad.view', ['ads' => $ads, 'user_id' => Auth::id()]);
     }
 
     public function create(Request $request)
@@ -30,7 +31,7 @@ class AdController extends Controller
         $ad = new Ad();
 
         $ad->description = $request->popis;
-
+        $ad->user_id = Auth::id();
         $ad->category = $request->kategoria;
         $ad->price = $request->cena;
         $ad->name = $request->nazov;
@@ -39,7 +40,7 @@ class AdController extends Controller
         $ad->save();
 
 
-        return redirect()->route('ad.view', ['kategoria', $ad->category]);
+        return redirect()->route('ad.view', ['kategoria' => $ad->category]);
     }
 
 

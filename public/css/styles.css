@@ -3,7 +3,7 @@ body {
     margin: 0px;
 }
 
-.container {
+.widecontainer {
     display: grid;
     grid-template-columns: 1fr;
 }

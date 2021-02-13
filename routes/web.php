@@ -32,7 +32,6 @@ Route::post('/skontroluj', [UserController::class, 'check'])->name('user.check')
 
 
 Route::get('/zobrazit/{kategoria}', [AdController::class, 'view'])->name('ad.view');
-Route::get('/odstranit', [AdController::class, 'delete'])->name('ad.delete');
 
 Route::post('/vytvor-inzerat', [AdController::class, 'create'])->name('ad.create');
 Route::get('/pridat', [AdController::class, 'add'])->name('ad.add');

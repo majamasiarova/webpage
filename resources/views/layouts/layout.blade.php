@@ -33,10 +33,11 @@
                 <a href="{{route('page.contact')}}">Kontakt</a>
             </div>
 
-            <div class="brand">
-                <a href="{{route('ad.add')}}">PRIDAŤ INZERÁT</a>
-
-            </div>
+            @auth
+                <div class="brand">
+                    <a href="{{route('ad.add')}}">PRIDAŤ INZERÁT</a>
+                </div>
+            @endauth
         </div>
 
         <div class="right-side">
