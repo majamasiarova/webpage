@@ -19,7 +19,8 @@
             <div class="row">
                 <div class="form-group col-md-2">
                     <label for="inputPopis">Popis:</label>
-                    <textarea rows="4" name="popis" cols="50" placeholder="Sem napíšte inzerát...">{{ old('popis') }}</textarea>
+                    <textarea rows="4" name="popis" cols="50" placeholder="Sem napíšte inzerát..."
+                              required>{{ old('popis') }}</textarea>
                 </div>
             </div>
 
@@ -27,7 +28,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputNazov">Názov:</label>
                     <input type="text" name="nazov" class="form-control" id="inputNazov"
-                           placeholder="Vyplňte názov produktu" value="{{ old('nazov') }}">
+                           placeholder="Vyplňte názov produktu" value="{{ old('nazov') }}" required>
                 </div>
             </div>
 
@@ -36,7 +37,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputCena">Cena:</label>
                     <input type="number" name="cena" class="form-control" id="inputCena"
-                           placeholder="Vyplňte cenu v eurách" value="{{ old('cena') }}">
+                           placeholder="Vyplňte cenu v eurách" value="{{ old('cena') }}" required>
                 </div>
             </div>
 
@@ -44,7 +45,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputLokalita">Lokalita:</label>
                     <input type="text" name="lokalita" class="form-control" id="inputLokalita"
-                           placeholder="Napíšte lokalitu" value="{{ old('lokalita') }}">
+                           placeholder="Napíšte lokalitu" value="{{ old('lokalita') }}" required>
                 </div>
             </div>
 
@@ -52,7 +53,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputkategoria">kategória:</label>
 
-                    <select class="form-control form-control-lg" name="kategoria">
+                    <select class="form-control form-control-lg" name="kategoria" required>
                         @if (old('kategoria') == "Autá")
                             <option value="Autá" selected>Autá</option>
                         @else
@@ -149,7 +150,6 @@
                         @else
                             <option value="Deti a detské potreby"> Deti a detské potreby</option>
                         @endif
-
 
                     </select>
 

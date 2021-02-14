@@ -55,7 +55,7 @@
                             <div class="form-group col-md-2">
                                 <label for="inputPopis">Popis:</label>
                                 <textarea id="inputPopis" rows="4" name="popis" cols="50"
-                                          placeholder="Sem napíšte inzerát..."> </textarea>
+                                          placeholder="Sem napíšte inzerát..." required> </textarea>
                             </div>
                         </div>
 
@@ -63,7 +63,7 @@
                             <div class="form-group col-md-10">
                                 <label for="inputNazov">Názov:</label>
                                 <input type="text" name="nazov" class="form-control" id="inputNazov"
-                                       placeholder="Vyplňte názov produktu">
+                                       placeholder="Vyplňte názov produktu" required>
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@
                             <div class="form-group col-md-10">
                                 <label for="inputCena">Cena:</label>
                                 <input type="number" name="cena" class="form-control" id="inputCena"
-                                       placeholder="Vyplňte cenu v eurách">
+                                       placeholder="Vyplňte cenu v eurách" required>
                             </div>
                         </div>
 
@@ -81,7 +81,7 @@
                                 <label for="inputLokalita">Lokalita:</label>
                                 <input type="text" name="lokalita" class="form-control"
                                        id="inputLokalita"
-                                       placeholder="Napíšte lokalitu">
+                                       placeholder="Napíšte lokalitu" required>
                             </div>
                         </div>
 
@@ -89,7 +89,7 @@
                             <div class="form-group col-md-10">
                                 <label for="inputKategoria">kategória:</label>
 
-                                <select class="form-control form-control-lg" name="kategoria" id="inputKategoria">
+                                <select class="form-control form-control-lg" name="kategoria" id="inputKategoria" required>
 
                                     <option value="Autá">Autá</option>
                                     <option value="Oblečenie">Oblečenie</option>

@@ -18,14 +18,14 @@
                 <div class="form-group col-md-2">
                     <label for="inputnazov">Meno:</label>
                     <input type="text" name="meno" class="form-control" id="inputnazov" placeholder="Vyplňte meno"
-                           value="{{ old('meno') }}">
+                           value="{{ old('meno') }}" required>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
                     <label for="inputsurname">Priezvisko:</label>
                     <input type="text" name="priezvisko" class="form-control" id="inputsurname"
-                           placeholder="Vyplňte priezvisko" value="{{ old('priezvisko') }}">
+                           placeholder="Vyplňte priezvisko" value="{{ old('priezvisko') }}" required>
                 </div>
 
             </div>
@@ -34,7 +34,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputemail">Email:</label>
                     <input type="email" name="email" class="form-control" id="inputemail"
-                           placeholder="Vyplňte email" value="{{ old('email') }}">
+                           placeholder="Vyplňte email" value="{{ old('email') }}" required>
                 </div>
             </div>
 
@@ -43,7 +43,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputocation">Lokalita:</label>
                     <input type="text" name="lokalita" class="form-control" id="inputocation"
-                           placeholder="Vyplňte lokalitu" value="{{ old('lokalita') }}">
+                           placeholder="Vyplňte lokalitu" value="{{ old('lokalita') }}" required>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputpassword">Heslo:</label>
                     <input type="password" name="heslo" class="form-control" id="inputpassword"
-                           placeholder="Vyplňte heslo">
+                           placeholder="Vyplňte heslo" required>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputpasswordtwo">Potvrď heslo:</label>
                     <input type="password" name="heslo_confirmation" class="form-control"
-                           id="inputpasswordtwo" placeholder="Vyplňte heslo">
+                           id="inputpasswordtwo" placeholder="Vyplňte heslo" required>
                 </div>
             </div>
 

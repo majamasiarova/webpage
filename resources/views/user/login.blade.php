@@ -9,7 +9,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputemail">Email:</label>
                     <input type="email" name="email" class="form-control @error('email')is-invalid @enderror"
-                           id="inputemail" placeholder="Vyplňte email">
+                           id="inputemail" placeholder="Vyplňte email" required>
                 </div>
                 @error('email')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -19,7 +19,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputpassword">Heslo:</label>
                     <input type="password" name="password" class="form-control" id="inputpassword"
-                           placeholder="Vyplňte heslo">
+                           placeholder="Vyplňte heslo" required>
                 </div>
             </div>
 
