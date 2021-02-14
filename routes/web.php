@@ -17,12 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-Route::get('/ads', [PageController::class, 'ads'])->name('page.ads');
 Route::get('/about', [PageController::class, 'about'])->name('page.about');
 Route::get('/kontakt', [PageController::class, 'contact'])->name('page.contact');
 
-Route::get('/odhlas', [UserController::class, 'logout'])->name('user.logout');
+Route::get('/odhlas', [UserController::class, 'logout'])->name('user.logout')->middleware('auth');
 
 Route::get('/registruj', [UserController::class, 'register'])->name('user.register');
 Route::post('/vytvor-uzivatela', [UserController::class, 'create'])->name('user.create');
@@ -33,8 +31,10 @@ Route::post('/skontroluj', [UserController::class, 'check'])->name('user.check')
 
 Route::get('/zobrazit/{kategoria}', [AdController::class, 'view'])->name('ad.view');
 
-Route::post('/vytvor-inzerat', [AdController::class, 'create'])->name('ad.create');
-Route::get('/pridat', [AdController::class, 'add'])->name('ad.add');
+Route::get('/pridat', [AdController::class, 'add'])->name('ad.add')->middleware('auth');
+Route::post('/vytvor-inzerat', [AdController::class, 'create'])->name('ad.create')->middleware('auth');
+
+Route::get('/moje-inzeraty',[AdController::class,'mine'])->name('ad.mine')->middleware('auth');
 
 Route::get('/', [PageController::class, 'index'])->name('page.index');
 
