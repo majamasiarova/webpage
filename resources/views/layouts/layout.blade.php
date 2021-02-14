@@ -35,10 +35,10 @@
             @auth
                 @if(!auth()->user()->isAdmin())
                     <div class="brand">
-                        <a href="{{route('ad.add')}}">PRIDAŤ INZERÁT</a>
+                        <a href="{{route('ad.add')}}">Pridať inzerát</a>
                     </div>
                     <div class="brand">
-                        <a href="{{route('ad.mine')}}">MOJE INZERÁTY</a>
+                        <a href="{{route('ad.mine')}}">Moje inzeráty</a>
                     </div>
                 @endif
             @endauth
@@ -47,10 +47,10 @@
         <div class="right-side">
             <div class="brand">
                 @auth
-                    <a href="{{route('user.logout')}}">ODHLÁSENIE</a>
+                    <a href="{{route('user.logout')}}">Odhlásenie</a>
                 @endauth
                 @guest
-                    <a href="{{route('user.login')}}">PRIHLÁSENIE</a>
+                    <a href="{{route('user.login')}}">Prihlásenie</a>
                 @endauth
             </div>
         </div>

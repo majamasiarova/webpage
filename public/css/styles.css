@@ -89,3 +89,21 @@ body {
     color: lightseagreen;
     font-weight: 600;
 }
+.error {
+    color: #d20d0d;
+    border-radius:10px;
+    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:16px;
+    padding:10px 10px 10px 36px;
+    margin:10px;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+.changedcolour{
+    color: blue;
+}
+
+.nicefont {
+    font: 15px Arial, sans-serif;
+}

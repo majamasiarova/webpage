@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="form-group col-md-2">
                     <label for="inputPopis">Popis:</label>
-                    <textarea rows="4" name="popis" cols="50" placeholder="Sem napíšte inzerát..."
+                    <textarea id="inputPopis" rows="4" name="popis" cols="50" placeholder="Sem napíšte inzerát..."
                               required>{{ old('popis') }}</textarea>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 <div class="form-group col-md-2">
                     <label for="inputkategoria">kategória:</label>
 
-                    <select class="form-control form-control-lg" name="kategoria" required>
+                    <select id="inputkategoria" class="form-control form-control-lg" name="kategoria">
                         @if (old('kategoria') == "Autá")
                             <option value="Autá" selected>Autá</option>
                         @else
@@ -152,11 +152,9 @@
                         @endif
 
                     </select>
-
                 </div>
             </div>
-
             <input type="submit" class="btn btn-primary" value="Pridať inzerát"/>
         </form>
-
+    </div>
 @endsection

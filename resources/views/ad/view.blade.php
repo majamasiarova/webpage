@@ -97,7 +97,7 @@
                                 <label for="inputKategoria">kategória:</label>
 
                                 <select class="form-control form-control-lg"
-                                        name="kategoria" id="inputKategoria" required>
+                                        name="kategoria" id="inputKategoria">
 
                                     <option value="Autá">Autá</option>
                                     <option value="Oblečenie">Oblečenie</option>
@@ -198,7 +198,7 @@
                             modalErrors.innerHTML = "";
                             for (var key in response.errors) {
                                 response.errors[key].forEach(function (message) {
-                                    modalErrors.innerHTML += "<p>" + message + "</p>";
+                                    modalErrors.innerHTML += "<p class='error'>" + message + "</p>";
                                 });
                             }
                         }

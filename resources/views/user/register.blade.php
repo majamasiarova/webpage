@@ -78,6 +78,6 @@
         </form>
 
 
-        <p>Po kliknutí tlačidla uložiť sa uložia zmeny.</p>
+        <span class="changedcolour"> Po kliknutí tlačidla uložiť sa uložia zmeny.</span>
     </div>
 @endsection
