@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,11 +23,15 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/ads');
+            if (Auth::user()->isAdmin()) {
+                return redirect()->intended(route('page.index') . '/');
+            }
+            return redirect()->intended(route('ad.mine'));
+
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Zadané údaje sú nesprávne. Skontrolujete si meno alebo heslo.',
         ]);
     }
 
@@ -44,7 +49,10 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->location = $request->lokalita;
         $user->phone_number = $request->cislo;
-        $user->password =  Hash::make($request->heslo);
+        $user->password = Hash::make($request->heslo);
+        $user->role_id = Role::query()
+            ->where('title', 'user')
+            ->value('id');
         $user->save();
         return redirect()->route('user.login');
     }
@@ -57,6 +65,6 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect(route('page.index') . '/');
     }
 }

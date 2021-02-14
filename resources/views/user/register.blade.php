@@ -64,7 +64,7 @@
             </div>
 
 
-            <button type="button" class="btn btn-primary">Registovať sa</button>
+            <button type="submit" class="btn btn-primary">Registovať sa</button>
         </form>
 
 

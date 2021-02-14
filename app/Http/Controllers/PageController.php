@@ -22,10 +22,5 @@ class PageController extends Controller
         return view('page.about');
     }
 
-    public function ads()
-    {
-        return view('page.ads');
-    }
-
 
 }

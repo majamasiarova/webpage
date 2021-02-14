@@ -27,7 +27,7 @@
             <br/>
             <br/>
 
-            <a href="{{route('user.register')}}"> class="btn btn-success">Zaregistrovať sa</a>
+            <a href="{{route('user.register')}}" class="btn btn-success">Zaregistrovať sa</a>
 
         </form>
     </div>

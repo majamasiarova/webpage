@@ -78,13 +78,14 @@ body {
     align-items: center;
     height: 100%;
     text-align: center;
-    padding-left: 100px;
+    padding-left: 250px;
     padding-right: 100px;
 }
 
 .img-text-wrapper .subtitle {
     transition: 1s;
     color: transparent;
+    font-size: 25px;
 }
 
 .image-blur {
@@ -95,11 +96,6 @@ body {
 .img-text-wrapper:hover .subtitle {
     color: lightseagreen;
     font-weight: 600;
-}
-
-.logo-wrapper img {
-    width: 50%;
-    margin-bottom: 20px;
 }
 
 .two-column-wrapper {

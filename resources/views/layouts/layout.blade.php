@@ -14,8 +14,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous"
     >
-
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -34,9 +33,14 @@
             </div>
 
             @auth
-                <div class="brand">
-                    <a href="{{route('ad.add')}}">PRIDAŤ INZERÁT</a>
-                </div>
+                @if(!auth()->user()->isAdmin())
+                    <div class="brand">
+                        <a href="{{route('ad.add')}}">PRIDAŤ INZERÁT</a>
+                    </div>
+                    <div class="brand">
+                        <a href="{{route('ad.mine')}}">MOJE INZERÁTY</a>
+                    </div>
+                @endif
             @endauth
         </div>
 
