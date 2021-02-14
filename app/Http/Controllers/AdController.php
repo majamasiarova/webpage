@@ -27,8 +27,7 @@ class AdController extends Controller
 
     public function view(string $kategoria)
     {
-        $ads = Ad::where('category', $kategoria)
-            ->get();
+        $ads = Ad::where('category', $kategoria)->get();
         return view('ad.view', ['ads' => $ads, 'loggedUser' => Auth::user()]);
     }
 

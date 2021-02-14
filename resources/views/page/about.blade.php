@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         <p class="text-left">
         <h3>Vitajte na stránke bazáru.</h3><br>
         Bazár poskytuje priestor pre inzerciu. <br>

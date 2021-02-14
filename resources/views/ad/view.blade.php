@@ -12,19 +12,26 @@
             <div class="mb-3 row">
                 @foreach ($chunk as $ad)
                     <div class="col-sm">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card">
                             <div class="card-body">
                                 <h6 class="card-subtitle mb-2 text-muted">
                                     <span class="description">{{$ad->description}}</span>
                                 </h6>
                                 <p class="card-text">katogória: <span class="category">{{$ad->category}}</span></p>
+                                <p class="card-text">Email: {{$ad->owner->email}}</p>
+                                @if (!is_null($ad->owner->phone_number))
+                                    <p class="card-text">Telefón: {{$ad->owner->phone_number}}</p>
+                                @endif
                                 <a href="#" class="card-link"> <span class="name">{{$ad->name}}</span></a>
                                 <a href="#" class="card-link"> <span class="price">{{$ad->price}}</span>€</a>
                                 <a href="#" class="card-link"> <span class="location">{{$ad->location}}</span></a>
 
-                                @if ($ad->user_id === $loggedUser->id || $loggedUser->role->title == 'admin')
-                                    <i class="bi bi-pencil edit ml-4" data-toggle="modal" data-target="#editing"></i>
-                                    <span id="{{$ad->id}}" class="close" aria-hidden="true">&times;</span>
+                                @if (!is_null($loggedUser))
+                                    @if ($ad->user_id === $loggedUser->id || $loggedUser->isAdmin())
+                                        <i class="bi bi-pencil edit ml-4" data-toggle="modal"
+                                           data-target="#editing"></i>
+                                        <span id="{{$ad->id}}" class="close" aria-hidden="true">&times;</span>
+                                    @endif
                                 @endif
 
 
@@ -89,7 +96,8 @@
                             <div class="form-group col-md-10">
                                 <label for="inputKategoria">kategória:</label>
 
-                                <select class="form-control form-control-lg" name="kategoria" id="inputKategoria" required>
+                                <select class="form-control form-control-lg"
+                                        name="kategoria" id="inputKategoria" required>
 
                                     <option value="Autá">Autá</option>
                                     <option value="Oblečenie">Oblečenie</option>
