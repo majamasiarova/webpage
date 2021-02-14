@@ -98,28 +98,9 @@
 
                                 <select class="form-control form-control-lg"
                                         name="kategoria" id="inputKategoria">
-
-                                    <option value="Autá">Autá</option>
-                                    <option value="Oblečenie">Oblečenie</option>
-                                    <option value="Elektronika">Elektronika</option>
-                                    <option value="Dom a záhrada">Dom a záhrada</option>
-                                    <option value="Reality, Byty, Domy">Reality, Byty, Domy</option>
-                                    <option value="Stroje">Stroje</option>
-                                    <option value="Mobily">Mobily</option>
-                                    <option value="Motorky">Motorky</option>
-                                    <option value="Práca">Práca</option>
-                                    <option value="Počítače">Počítače</option>
-                                    <option value="Hudba">Hudba</option>
-                                    <option value="Zvieratá">Zvieratá</option>
-                                    <option value="Ostatné">Ostatné</option>
-                                    <option value="Služby">Služby</option>
-                                    <option value="Knihy">Knihy</option>
-                                    <option value="Nábytok">Nábytok</option>
-                                    <option value="Športové potreby">Športové potreby</option>
-                                    <option value="Zdravie a krása">Zdravie a krása</option>
-                                    <option value="Deti a detské potreby"> Deti a detské potreby
-                                    </option>
-
+                                    @foreach($categories as $category)
+                                        <option value="{{$category}}">{{$category}}</option>
+                                    @endforeach
                                 </select>
 
                             </div>

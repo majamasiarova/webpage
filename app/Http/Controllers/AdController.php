@@ -13,22 +13,23 @@ class AdController extends Controller
 
     public function add()
     {
-        return view('ad.add');
+        return view('ad.add', ['categories' => Ad::getCategories()]);
     }
 
     public function delete(Ad $ad)
     {
-        if (Auth::id() == $ad->user_id || Auth::user()->isAdmin()) {
-            $ad->delete();
-            return response()->json(['success' => true], 200);
-        }
-        return response()->json(['success' => false], 400);
+        $ad->delete();
+        return response()->json(['success' => true], 200);
     }
 
     public function view(string $kategoria)
     {
         $ads = Ad::where('category', $kategoria)->get();
-        return view('ad.view', ['ads' => $ads, 'loggedUser' => Auth::user()]);
+        return view('ad.view', [
+            'ads' => $ads,
+            'loggedUser' => Auth::user(),
+            'categories' => Ad::getCategories()
+        ]);
     }
 
     public function create(Request $request)
@@ -72,7 +73,11 @@ class AdController extends Controller
     {
         $ads = Ad::where('user_id', Auth::id())
             ->get();
-        return view('ad.view', ['ads' => $ads, 'loggedUser' => Auth::user()]);
+        return view('ad.view', [
+            'ads' => $ads,
+            'loggedUser' => Auth::user(),
+            'categories' => Ad::getCategories()
+        ]);
     }
 
     private function getRules()
@@ -84,12 +89,7 @@ class AdController extends Controller
             'lokalita' => 'required',
             'kategoria' => [
                 'required',
-                Rule::in([
-                    "Autá", "Oblečenie", "Elektronika", "Dom a záhrada", "Reality, Byty, Domy", "Stroje",
-                    "Mobily", "Motorky", "Práca", "Počítače", "Hudba", "Zvieratá", "Ostatné",
-                    "Služby", "Knihy", "Nábytok", "Športové potreby", "Zdravie a krása",
-                    "Deti a detské potreby"
-                ])
+                Rule::in(Ad::getCategories())
             ],
         ];
     }

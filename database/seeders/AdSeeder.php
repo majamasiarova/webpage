@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ad;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -18,10 +19,7 @@ class AdSeeder extends Seeder
         $user = DB::table('users')
             ->where('name', 'user')
             ->first();
-        $categories = ['Autá', 'Oblečenie', 'Elektronika', 'Dom a záhrada', 'Reality,Byty,Domy',
-            'Stroje', 'Mobily', 'Motorky', 'Práca', 'Počítače', 'Hudba', 'Zvieratá', 'Ostatné', 'Služby',
-            'Knihy', 'Nábytok', 'Športové potreby', 'Zdravie a krása',
-            'Deti a detské potreby'];
+        $categories = Ad::getCategories();
 
         for ($i = 1; $i < 100; $i++) {
             DB::table('ads')->insert([
