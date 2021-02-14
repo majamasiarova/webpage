@@ -24,8 +24,10 @@ class UserController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->isAdmin()) {
+                $request->session()->flash('status', 'Boli ste úspešne prihlásený.');
                 return redirect()->intended(route('page.index') . '/');
             }
+            $request->session()->flash('status', 'Boli ste úspešne prihlásený.');
             return redirect()->intended(route('ad.mine'));
 
         }
@@ -42,6 +44,15 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
+        $request->validate([
+            'meno' => 'required',
+            'priezvisko' => 'required',
+            'email' => 'email',
+            'lokalita' => 'required',
+            'cislo' => 'nullable|numeric',
+            'heslo'=> 'required|confirmed',
+            'heslo_confirmation' => 'required',
+        ]);
         $user = new User();
         $user->name = Str::lower($request->meno);
         $user->first_name = $request->meno;
@@ -54,6 +65,7 @@ class UserController extends Controller
             ->where('title', 'user')
             ->value('id');
         $user->save();
+        $request->session()->flash('status', 'Boli ste úspešne registrovaný.');
         return redirect()->route('user.login');
     }
 

@@ -48,6 +48,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div id="modalErrors"></div>
                     <form action="#" method="POST">
                         @csrf
                         <div class="row">
@@ -133,8 +134,11 @@
             var id = this.getAttribute("id");
             var item = this;
             fetch('{{route('ad.delete', ['ad' => ':ad'])}}'.replace(':ad', id))
-                .then(function () {
-                    item.parentElement.parentElement.parentElement.remove();
+                .then(response => response.json())
+                .then(function (response) {
+                    if (response.success == true) {
+                        item.parentElement.parentElement.parentElement.remove();
+                    }
                 });
         };
 
@@ -147,6 +151,8 @@
 
         const editing = function () {
             var cardBody = this.parentElement;
+            var modalErrors = document.getElementById('modalErrors');
+            modalErrors.innerHTML = "";
             document.getElementById("modalId").innerText = cardBody.querySelector('.close').getAttribute('id');
             document.getElementById("inputPopis").value = cardBody.querySelector('.description').innerText;
             document.getElementById("inputNazov").value = cardBody.querySelector('.name').innerText;
@@ -173,8 +179,22 @@
                 body: formData,
                 method: 'POST',
             })
-                .then(function () {
-                    location.reload();
+                .then(response => response.json())
+                .then(function (response) {
+                    if (response.success == true) {
+                        location.reload();
+                    } else {
+                        //https://stackoverflow.com/a/5677816
+                        if (response.errors) {
+                            var modalErrors = document.getElementById('modalErrors');
+                            modalErrors.innerHTML = "";
+                            for (var key in response.errors) {
+                                response.errors[key].forEach(function (message) {
+                                    modalErrors.innerHTML += "<p>" + message + "</p>";
+                                });
+                            }
+                        }
+                    }
                 });
         }
 
