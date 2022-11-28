@@ -107,3 +107,213 @@ body {
 .nicefont {
     font: 15px Arial, sans-serif;
 }
+.accordion {
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    background: #009578;
+}
+
+.accordion__label,
+.accordion__content {
+    padding: 14px 20px;
+}
+
+.accordion__label {
+    display: block;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+}
+
+.accordion__label:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.accordion__label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 12px;
+    height: 6px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+    background-size: contain;
+    transition: transform 0.4s;
+}
+
+.accordion__content {
+    background: #ffffff;
+    line-height: 1.6;
+    font-size: 0.85em;
+    display: none;
+}
+
+.accordion__input {
+    display: none;
+}
+
+.accordion__input:checked ~ .accordion__content {
+    display: block;
+}
+
+.accordion__input:checked ~ .accordion__label::after {
+    transform: translateY(-50%) rotate(0.5turn);
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 2px;
+    position: absolute;
+    bottom: auto;
+    width: 100%;
+    /* position: fixed;
+    z-index: 1; */
+}
+.contact .row{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap:1.5rem;
+    align-items: center;
+}
+
+.contact .row form{
+    flex:1 1 40rem;
+    padding:2rem 2.5rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border:.1rem solid rgba(0,0,0,.1);
+    background: #fff;
+    border-radius: .5rem;
+}
+
+.contact .row .image{
+    flex:1 1 40rem;
+}
+
+.contact .row .image img{
+    width: 100%;
+}
+
+.contact .row form .box{
+    padding:1rem;
+    font-size: 1.7rem;
+    color:#333;
+    text-transform: none;
+    border:.1rem solid rgba(0,0,0,.1);
+    border-radius: .5rem;
+    margin:.7rem 0;
+    width: 100%;
+}
+
+.contact .row form .box:focus{
+    border-color: var(--pink);
+}
+
+.contact .row form textarea{
+    height: 15rem;
+    resize: none;
+}
+
+
+/*------footer*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body{
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 1170px;
+    margin:auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+ul{
+    list-style: none;
+}
+.footer{
+    background-color: #24262b;
+    padding: 10px 0;
+}
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+.footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+}
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    margin:0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+@media(max-width: 574px){
+    .footer-col{
+        width: 100%;
+    }
+}
+
